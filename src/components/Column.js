@@ -3,7 +3,6 @@ import { ITEM_TYPE } from '../utils/constants';
 import ColumnCount from './ColumnCount';
 import Tasks from './Tasks';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
-import { updateTaskStatus } from '../redux/features/task-slice';
 import { saveItemToColumn } from '../redux/features/task-board-slice';
 
 export default function Column({ column, tasks, setTaskList }) {
@@ -16,7 +15,6 @@ export default function Column({ column, tasks, setTaskList }) {
     drop: () => {
       const columnKey = column.label.toLowerCase();
       const updatedStatusTask = { ...currentTask, status: columnKey };
-      dispatch(updateTaskStatus(columnKey));
       dispatch(saveItemToColumn({
         task: updatedStatusTask,
         fromColumn: currentTask.status,

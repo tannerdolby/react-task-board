@@ -50,7 +50,7 @@ function DisplayTask({ task }) {
     <div style={{
       padding: '0 1.5rem'
     }}>
-      <h3 style={{fontSize: '2rem', margin: '.5rem 0'}}>{task?.title}</h3>
+      <h3 style={{fontSize: '2rem', margin: '.5rem 0', lineHeight: 'normal'}}>{task?.title}</h3>
       {task?.date && <span style={{fontSize: '.9rem'}}>Date created: {new Date(task?.date).toLocaleString()}</span>}
       <p className="task__desc" style={{margin: '1rem 0'}}>{task?.desc}</p>
       <Labels labels={task?.labels} />

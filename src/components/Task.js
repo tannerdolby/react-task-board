@@ -35,7 +35,7 @@ export default function Task({ task, children }) {
         dispatch(saveIsExpandingTask(true));
         dispatch(saveCurrentDraggedTask(task));
       }}
-      onDrag={() => {
+      onDragStart={() => {
         dispatch(saveCurrentDraggedTask(task));
       }}
     >
