@@ -1,0 +1,101 @@
+.task-board-app {
+    padding: .5rem 1.5rem;
+}
+
+.task-board-app h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tektur', -apple-system, sans-serif;
+    font-size: 2.4rem;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-info ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-info .github-icon {
+    display: block;
+    background-image: url("../../public/icons/github.svg");
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: 0 0;
+    width: 30px;
+    height: 30px;
+    margin-bottom: .2rem;
+}
+
+.header-info .github-icon a:hover {
+    cursor: pointer;
+}
+
+.header-inputs {
+    display: flex
+}
+
+.header-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 0;
+  margin: .5rem auto;
+}
+
+.header-inputs .search-bar {
+    padding: 0.5rem 0.5rem;
+    padding-left: 2.1rem;
+    border: 1px solid #d3d3d3;
+    margin-bottom: 0;
+    border-radius: 0.3rem;
+    font-size: 14px;
+    width: 100%;
+    background-image: url("../../public/icons/magnifying-glass.svg");
+    background-repeat: no-repeat;
+    background-size: 17px 17px;
+    background-position: 8px 8px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.add-task-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a6bdd;
+    padding: .25rem .75rem;
+    border: 1px solid transparent;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.add-task-btn:hover {
+    background: #1563cf;
+    cursor: pointer;
+}
+
+.add-task-btn:focus,
+.add-task-form .submit-btn:focus {
+    outline-color: #51b1ff;
+    background: #1563cf;
+}
+
+.add-task-btn span {
+    font-size: 1.5rem;
+    margin-right: .5rem;
+}
+
+.task-board-app .clear-all-btn {
+    background: #fff;
+    border: 1px solid lightgray;
+    padding: .5rem .75rem;
+    border-radius: 5px;
+}

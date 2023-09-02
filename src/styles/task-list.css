@@ -1,0 +1,61 @@
+.task-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem .35rem;
+    margin: 0 auto;
+    max-height: 480px;
+    overflow-y: auto;
+    height: 100%;
+}
+  
+.add-todo-inputs {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 1rem 0;
+}
+
+.add-todo-submit-btns {
+    display: flex;
+
+}
+
+.add-todo-inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.add-todo-inputs-wrapper textarea {
+    display: block;
+    width: 200px;
+    height: 50px;
+    max-width: 98%;
+}
+
+.add-todo-inputs label {
+    margin-bottom: .35rem;
+}
+
+.todo-modify-status-btn {
+    font-size: .9rem;
+    margin: .1rem auto;
+    width: 100%;
+    width: fit-content;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: .3rem .4rem;
+}
+
+.todo-modify-status-btn:hover {
+    cursor: pointer;
+    background: #eee;
+}
+
+.todo-modify-status-btn:focus {
+    background: #eee;
+}

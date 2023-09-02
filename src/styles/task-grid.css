@@ -1,0 +1,60 @@
+.task-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    height: 100%;
+    min-height: 80vh;
+    max-height: 800px;
+    margin: 1rem auto;
+    border-radius: .25rem;
+}
+
+.task-board li {
+    width: 100%;
+}
+
+.task-board .board-column {
+    min-width: 15rem;
+    width: 100%;
+    height: 100%;
+    max-height: inherit;
+    background: #F4F6F6;
+    background: rgb(241, 243, 243);
+    background: rgb(244, 245, 245);
+    border-radius: .5rem;
+    border: none;
+    padding: 1rem 0;
+    margin: 0 auto;
+}
+
+.board-column .column-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 1.25rem;
+    margin-bottom: .5rem;
+    background: inherit;
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
+}
+
+.column-header .column-count {
+    margin-left: .8rem;
+    background: rgb(226, 226, 226);
+    background: rgb(225, 225, 225);
+    border-radius: 50%;
+    font-size: .9rem;
+    font-weight: 600;
+    padding: .125rem .55rem;
+    padding: .15rem .6rem;
+}
+
+.column-header .column-identifier {
+    font-weight: 600;
+}
+ 
+.board-column .column-identifier span {
+    font-size: 17px;
+    margin-left: .25rem;
+}

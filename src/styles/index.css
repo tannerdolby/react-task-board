@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  font: normal normal normal 1rem/1.6 -apple-system,arial,"EB Garamond","Helvetica Neue",Helvetica,sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Arial,Helevetica,Roboto,sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  background-color: #1668db;
+  color: #fff;
+  border-radius: .25rem;
+  padding: .4rem 1rem;
+}
+
+button:hover {
+  background-color: #1563cf;
+  cursor: pointer;
+}
+
+.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.draggable-cursor {
+  background: red;
+	cursor: move !important; /* fallback: no `url()` support or images disabled */
+	cursor: -webkit-grabbing !important; /* Chrome 1-21, Safari 4+ */
+	cursor:    -moz-grabbing !important; /* Firefox 1.5-26 */
+	cursor:         grabbing !important; /* W3C standards syntax, should come least */
+}
