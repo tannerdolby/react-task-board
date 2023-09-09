@@ -1,5 +1,6 @@
 .task-board-app {
     padding: .5rem 1.5rem;
+    overflow-x: auto;
 }
 
 .task-board-app h1 {
@@ -19,18 +20,14 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
 }
 
 .header-info .github-icon {
     display: block;
-    background-image: url("../../public/icons/github.svg");
-    background-repeat: no-repeat;
-    background-size: 25px 25px;
-    background-position: 0 0;
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     margin-bottom: .2rem;
 }
 
@@ -96,6 +93,5 @@
 .task-board-app .clear-all-btn {
     background: #fff;
     border: 1px solid lightgray;
-    padding: .5rem .75rem;
-    border-radius: 5px;
+    color: #000;
 }

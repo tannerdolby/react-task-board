@@ -1,14 +1,23 @@
 import { useDrop } from 'react-dnd';
 import { ITEM_TYPE } from '../utils/constants';
-import ColumnCount from './ColumnCount';
-import Tasks from './Tasks';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
 import { saveItemToColumn } from '../redux/features/task-board-slice';
+import { useEffect, useState } from 'react';
+import { getStoredTaskBoard } from '../utils/localStorage';
+import Tasks from './Tasks';
 
-export default function Column({ column, tasks, setTaskList }) {
-  const columnTasks = [...new Set(useAppSelector(state => state.taskBoard[column.label.toLowerCase()]))];
+export default function Column({ column }) {
+  const columnName = column.label.toLowerCase();
+  const taskBoardState = useAppSelector(state => state.taskBoard);
+  const [storedTasks, setStoredTasks] = useState(getStoredTaskBoard());
+  const [columnTasks, setColumnTasks] = useState([]);
   const currentTask = useAppSelector(state => state.taskBoard.current);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setColumnTasks([...new Set(taskBoardState[columnName])]);
+    setStoredTasks(getStoredTaskBoard());
+  }, [taskBoardState, columnName]);
 
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: ITEM_TYPE.TASK,
@@ -32,14 +41,13 @@ export default function Column({ column, tasks, setTaskList }) {
     }}>
       <div className="column-header">
         <div className="column-identifier">{column.label} <span>{column.emoji}</span></div>
-        <ColumnCount
-          value={columnTasks?.length}
-        />
+        <span className="column-count">
+          {storedTasks[columnName]?.length || columnTasks?.length}
+        </span>
       </div>
       <Tasks
-        tasks={columnTasks}
+        tasks={(storedTasks && storedTasks[columnName]) || columnTasks}
         columnName={column.label}
-        setTaskList={setTaskList}
       />
     </div>
   );

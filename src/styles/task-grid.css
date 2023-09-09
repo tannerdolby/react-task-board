@@ -9,7 +9,7 @@
     border-radius: .25rem;
 }
 
-.task-board li {
+.task-list > li {
     width: 100%;
 }
 

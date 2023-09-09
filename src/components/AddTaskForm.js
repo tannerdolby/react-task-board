@@ -1,9 +1,13 @@
 import '../styles/add-task-form.css';
 import { useAppDispatch } from '../redux/app/hooks';
-import { saveItemToColumn, saveIsAddingNewItem } from '../redux/features/task-board-slice';
-import { useRef, useState } from 'react';
+import {
+  saveItemToColumn,
+  saveIsAddingNewItem,
+  saveCurrentDraggedTask
+} from '../redux/features/task-board-slice';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function AddTaskForm({ }) {
+export default function AddTaskForm() {
   const dispatch = useAppDispatch();
 
   function handleSubmit(e) {
@@ -15,12 +19,13 @@ export default function AddTaskForm({ }) {
 
     formatAndSaveLabels(formJson);
     formJson.date = new Date().getTime();
+    formJson.id = uuidv4();
 
+    dispatch(saveCurrentDraggedTask(formJson));
     dispatch(saveItemToColumn({
       task: formJson,
       toColumn: formJson.status
     }));
-
     dispatch(saveIsAddingNewItem(false));
   }
 

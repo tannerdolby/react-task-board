@@ -2,8 +2,8 @@ import { useDrag } from 'react-dnd';
 import { ITEM_TYPE } from '../utils/constants';
 import { useAppDispatch } from '../redux/app/hooks';
 import { saveCurrentDraggedTask, saveIsExpandingTask } from '../redux/features/task-board-slice';
+import { isValidArray } from '../utils/helpers';
 import '../styles/task.css';
-import { isValidArray } from '../utils/helper';
 
 export default function Task({ task, children }) {
   const dispatch = useAppDispatch();
@@ -17,8 +17,10 @@ export default function Task({ task, children }) {
     }),
     []
   );
-  
-  if (!task) return '';
+
+  if (!task) {
+    return '';
+  }
 
   const { title, desc, labels} = task;
 
@@ -68,7 +70,6 @@ function Description({ desc }) {
 
 export function Labels({ labels }) {
   if (!isValidArray(labels)) return '';
-  console.log('sajj', labels, isValidArray(labels));
   return (
     <ul className="task__labels">
       {labels?.map((label, i) => {

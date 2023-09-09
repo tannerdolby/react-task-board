@@ -1,17 +1,20 @@
-// TODO: keep redis in mind
-
-export function saveToLocal(data) {
-    if (!data || !Array.isArray(data)) {
+export function saveTaskBoard(data) {
+    if (!data || Object.keys(data) === 0) {
         throw new Error('Unable to save task list to local storage.');
     }
     const localStorage = window.localStorage;
-    localStorage.setItem('taskList', JSON.stringify(data));
+    localStorage.setItem('taskBoard', JSON.stringify(data));
 }
 
-export function getStoredTaskList() {
-    return window.localStorage.getItem('taskList');
+export function getStoredTaskBoard() {
+    return JSON.parse(window.localStorage.getItem('taskBoard'));
 }
 
-export function clearStorage() {
-    window.localStorage.clear();
+export function clearStoredTasks() {
+    window.localStorage.setItem('taskBoard', JSON.stringify({
+        todo: [],
+        'in-progress': [],
+        'in-review': [],
+        completed: []
+    }));
 }

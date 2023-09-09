@@ -2,7 +2,7 @@
     background: #fff;
     margin: .35rem auto;
     padding: 1rem;
-    border: 1px solid rgb(230, 230, 230);
+    border: 1px solid rgb(225, 225, 225);
     border-radius: .35rem;
     width: 100%;
     display: flex;
@@ -15,7 +15,8 @@
 }
 
 .task:hover {
-    border: 1px solid rgb(214, 214, 214);
+    border: 1px solid rgb(210, 210, 210);
+    /* background: rgb(238, 238, 238); */
     filter: rgb(245, 245, 245);
     cursor: move;
 }

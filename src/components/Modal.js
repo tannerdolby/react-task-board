@@ -1,11 +1,7 @@
-import '../styles/modal.css';
-import { useAppDispatch } from '../redux/app/hooks';
-import { saveIsAddingNewItem } from '../redux/features/task-board-slice';
 import { useEffect } from 'react';
+import '../styles/modal.css';
 
 export default function Modal({ content, title, isOpen, height, clickEffect }) {
-  const dispatch = useAppDispatch();
-
   useEffect(() => {
     if (isOpen) {
       window.document.body.style.overflow = 'hidden';
@@ -18,11 +14,10 @@ export default function Modal({ content, title, isOpen, height, clickEffect }) {
         <button
           type="button"
           className="close-modal-btn"
-          title="Close add task modal"
+          title="Close modal"
           tabIndex={0}
           onClick={() => {
             clickEffect(isOpen);
-            // dispatch(saveIsAddingNewItem(!isOpen));
           }}
         >
           X
