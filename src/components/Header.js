@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from "../redux/app/hooks";
 import { clearStoredTasks } from "../utils/localStorage";
 import AddTaskForm from "./AddTaskForm";
 import Modal from "./Modal";
+import Search from "./Search";
 
 export default function Header() {
   const taskBoardState = useAppSelector(state => state.taskBoard);
@@ -33,11 +34,7 @@ export default function Header() {
         </ul>
       </div>
       <div className="header-inputs">
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="Search items"
-        />
+        <Search />
         <div style={{ display: 'flex', gap: '.5rem' }}>
           <button
             onClick={() => {

@@ -1,7 +1,7 @@
 import { useDrop } from 'react-dnd';
 import { ITEM_TYPE } from '../utils/constants';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
-import { saveItemToColumn } from '../redux/features/task-board-slice';
+import { saveItemToColumn, saveBoard } from '../redux/features/task-board-slice';
 import { useEffect, useState } from 'react';
 import { getStoredTaskBoard } from '../utils/localStorage';
 import Tasks from './Tasks';
@@ -13,6 +13,12 @@ export default function Column({ column }) {
   const [columnTasks, setColumnTasks] = useState([]);
   const currentTask = useAppSelector(state => state.taskBoard.current);
   const dispatch = useAppDispatch();
+
+  let tasks = (storedTasks ? storedTasks[columnName] : columnTasks);
+
+  if (taskBoardState.search.length > 0) {
+    tasks = tasks.filter(task => task.title.includes(taskBoardState.search));
+  }
 
   useEffect(() => {
     setColumnTasks([...new Set(taskBoardState[columnName])]);
@@ -42,11 +48,11 @@ export default function Column({ column }) {
       <div className="column-header">
         <div className="column-identifier">{column.label} <span>{column.emoji}</span></div>
         <span className="column-count">
-          {storedTasks[columnName]?.length || columnTasks?.length}
+          {tasks.length}
         </span>
       </div>
       <Tasks
-        tasks={(storedTasks && storedTasks[columnName]) || columnTasks}
+        tasks={tasks}
         columnName={column.label}
       />
     </div>
