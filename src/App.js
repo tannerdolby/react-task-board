@@ -2,7 +2,7 @@ import TaskBoard from './components/TaskBoard';
 import Header from './components/Header';
 import './styles/App.css';
 import { useAppDispatch } from './redux/app/hooks';
-import { getStoredTaskBoard, saveTaskBoard } from './utils/localStorage';
+import { getStoredTaskBoard } from './utils/localStorage';
 import { saveBoard } from './redux/features/task-board-slice';
 
 function App() {
