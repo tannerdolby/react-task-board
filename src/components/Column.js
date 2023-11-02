@@ -1,7 +1,7 @@
 import { useDrop } from 'react-dnd';
 import { ITEM_TYPE } from '../utils/constants';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
-import { saveItemToColumn, saveBoard } from '../redux/features/task-board-slice';
+import { saveItemToColumn, saveIsAddingNewItem } from '../redux/features/task-board-slice';
 import { useEffect, useState } from 'react';
 import { getStoredTaskBoard } from '../utils/localStorage';
 import Tasks from './Tasks';

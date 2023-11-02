@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
 import {
   saveItemToColumn,
   saveIsAddingNewItem,
-  saveCurrentDraggedTask
+  saveCurrentDraggedTask,
 } from '../redux/features/task-board-slice';
 import { v4 as uuidv4 } from 'uuid';
 import { GRID_COLUMNS_LIST } from '../utils/constants';

@@ -40,7 +40,7 @@ export default function Header() {
         <div style={{ display: 'flex', gap: '.5rem' }}>
           <button
             onClick={() => {
-              dispatch(saveIsAddingNewItem(!taskBoardState.isAddingNewItem));
+              dispatch(saveIsAddingNewItem(true));
             }}
             className="add-task-btn"
           >

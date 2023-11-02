@@ -29,10 +29,10 @@
 
 .board-column .column-header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 1.25rem;
+    padding: 0 1rem;
     margin-bottom: .5rem;
     background: inherit;
     border-top-right-radius: .25rem;
@@ -44,11 +44,18 @@
     background: rgb(226, 226, 226);
     background: rgb(225, 225, 225);
     border-radius: 50%;
-    font-size: .9rem;
+    font-size: 1rem;
     font-weight: 600;
-    padding: .125rem .55rem;
-    padding: .15rem .6rem;
-    padding: 2px 8px;
+    padding: .125rem .6rem;
+}
+
+.column-header .add-task-to-column-btn {
+    margin-left: auto;
+    color: #000;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0 .35rem;
 }
 
 .column-header .column-identifier {

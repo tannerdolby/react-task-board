@@ -6,6 +6,8 @@ export default function Modal({ content, title, isOpen, height, clickEffect }) {
     if (isOpen) {
       window.document.body.style.overflow = 'hidden';
     }
+
+    return () => (window.document.body.style.overflow = 'auto');
   }, [isOpen]);
 
   return (
