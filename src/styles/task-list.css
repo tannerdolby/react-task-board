@@ -5,7 +5,7 @@
     align-items: center;
     padding: 1rem .35rem;
     margin: 0 auto;
-    max-height: 480px;
+    max-height: 95%;
     overflow-y: auto;
     height: 100%;
 }

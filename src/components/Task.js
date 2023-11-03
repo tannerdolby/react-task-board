@@ -61,9 +61,13 @@ function Title({ title, controls }) {
 
 function Description({ desc }) {
   if (!desc) return '';
+  let truncated = '';
+  if (desc.length > 80) {
+    truncated = desc.slice(0, 80) + '...';
+  }
   return (
     <p className="task__desc">
-      {desc}
+      {truncated || desc}
     </p>
   );
 }

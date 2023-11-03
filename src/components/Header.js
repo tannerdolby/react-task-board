@@ -62,6 +62,7 @@ export default function Header() {
           isOpen={taskBoardState.isAddingNewItem}
           title="Add Task"
           clickEffect={(isOpen) => dispatch(saveIsAddingNewItem(!isOpen))}
+          styles={{gridRow: '2 / 8'}}
         />
       </div>
     </div>

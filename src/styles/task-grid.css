@@ -60,9 +60,9 @@
 
 .column-header .column-identifier {
     font-weight: 600;
+    font-size: 1.1rem;
 }
  
 .board-column .column-identifier span {
-    font-size: 17px;
     margin-left: .25rem;
 }

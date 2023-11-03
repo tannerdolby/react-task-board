@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import '../styles/modal.css';
 
-export default function Modal({ content, title, isOpen, height, clickEffect }) {
+export default function Modal({ content, title, isOpen, height, clickEffect, styles }) {
   useEffect(() => {
     if (isOpen) {
       window.document.body.style.overflow = 'hidden';
@@ -25,7 +25,7 @@ export default function Modal({ content, title, isOpen, height, clickEffect }) {
           X
         </button>
         {title && <span className="modal-title">{title}</span>}
-        <div className="modal-content">
+        <div className="modal-content" style={styles}>
           {content}
         </div>
       </div>

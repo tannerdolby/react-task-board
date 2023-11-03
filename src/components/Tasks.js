@@ -26,7 +26,6 @@ export default function Tasks({ tasks }) {
                 clickEffect={(isExpanded) => {
                   dispatch(saveIsExpandingTask(!isExpanded));
                 }}
-                height='20rem'
               />
               <Task
                 task={task}
@@ -44,25 +43,25 @@ function DisplayTask({ task }) {
 
   return (
     <div style={{
-      padding: '0 1.5rem'
+      padding: '1rem 2rem',
+      height: '100%'
     }}>
       <h3
         style={{
           fontSize: '2rem',
-          margin: '.5rem 0',
+          margin: '1rem 0',
           lineHeight: 'normal'
         }}
       >
         {task.title}
       </h3>
       {task.date && 
-        <span style={{fontSize: '.9rem'}}>
-          Date created: {new Date(task.date).toLocaleString()}
+        <div style={{fontSize: '.9rem'}}>
+          Created on {new Date(task.date).toLocaleString()}
           <br />
           Status: {task.status}
-        </span>
+        </div>
       }
-      
       <p className="task__desc" style={{margin: '1rem 0'}}>
         {task.desc}
       </p>
