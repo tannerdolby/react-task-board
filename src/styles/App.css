@@ -8,6 +8,7 @@
     padding: 0;
     font-family: 'Tektur', -apple-system, sans-serif;
     font-size: 2.4rem;
+    line-height: normal;
 }
 
 .header-info {
@@ -36,13 +37,11 @@
 }
 
 .header-inputs {
-    display: flex
-}
-
-.header-inputs {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .75rem;
   padding: .5rem 0;
   margin: .5rem auto;
 }
