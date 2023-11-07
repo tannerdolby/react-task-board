@@ -38,13 +38,13 @@
 
 .modal {
     --w: 85;
-    --left: 20;
     display: grid;
     grid-template-rows: repeat(3, minmax(1rem, 3rem));
     position: fixed;
     border: 1px solid lightgray;
     width: calc(var(--w) * 1vmin);
-    height: fit-content;
+    height: -webkit-fill-available;
+    max-height: 570px;
     background: #fff;
     border-radius: .5rem;
     padding: 0 0 1rem 0;

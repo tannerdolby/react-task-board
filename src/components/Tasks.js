@@ -17,6 +17,7 @@ export default function Tasks({ tasks }) {
           return (
             <li key={i}>
               <Modal
+                maxHeight='400px'
                 content={
                   <DisplayTask
                     task={currentTask}

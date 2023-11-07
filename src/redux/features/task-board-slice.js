@@ -29,7 +29,7 @@ export const taskBoardSlice = createSlice({
         state[fromColumn] = removeItemFromColumn(state, fromColumn, task);
       }
 
-      state[toColumn] = [...state[toColumn], task];
+      state[toColumn].push(task);
 
       // maintain a temp "history" for tasks using local storage
       const localState = getStoredTaskBoard() || state;
@@ -37,7 +37,7 @@ export const taskBoardSlice = createSlice({
       localState[fromColumn] = removeItemFromColumn(localState, fromColumn, task);
       localState[toColumn].push(task);
 
-      saveTaskBoard(localState);
+      saveTaskBoard(state);
     },
     saveIsAddingNewItem(state, action) {
       state.isAddingNewItem = Boolean(action.payload);
