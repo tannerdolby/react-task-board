@@ -34,7 +34,7 @@ export default function Task({ task, children }) {
         visibility: isDragging && 'hidden'
       }}
       onKeyUp={(e) => {
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
           dispatch(saveIsExpandingTask(true));
           dispatch(saveCurrentDraggedTask(task));
         }
