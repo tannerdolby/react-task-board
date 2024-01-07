@@ -27,12 +27,12 @@
 }
 
 .task__title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .task__desc {
-    font-size: .9rem;
+    font-size: 1rem;
     padding: 0;
     margin: .35rem 0 .25rem;
     width: inherit;
@@ -43,7 +43,7 @@
 .task__labels {
     list-style: none;
     padding: 0;
-    font-size: .8rem;
+    font-size: 1rem;
     margin-top: .5rem;
     display: flex;
     justify-content: flex-start;
@@ -57,7 +57,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    font-size: .75rem;
+    font-size: .85rem;
     padding: .1rem .5rem;
     background: #eee;
     width: fit-content;
@@ -79,4 +79,45 @@
 .task-date {
     margin-left: .5rem;
     font-size: .9rem;
+}
+
+.task-card-actions {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.task-card-actions button {
+    font-size: .9rem;
+}
+
+.task-card-actions select:hover {
+    cursor: pointer;
+}
+
+.task-card-actions select.light-control-btn {
+    margin-left: 8px;
+    padding: .35rem .5rem;
+}
+
+.task-card-actions button:last-child {
+    margin-left: auto;
+}
+
+.delete-task-btn {
+   background: red;
+   color: #fff;
+   display: flex;
+   width: fit-content;
+   padding: .35rem 1rem;
+   border: 1px solid transparent;
+   font-weight: 500;
+
+}
+
+.delete-task-btn:hover {
+    background: rgb(228, 6, 6);
+    cursor: pointer;
 }

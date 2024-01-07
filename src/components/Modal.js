@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import '../styles/modal.css';
 
-export default function Modal({ content, title, isOpen, height, maxHeight, clickEffect, styles }) {
+export default function Modal({ content, title, footer, hideHeader, isOpen, height, maxHeight, clickEffect, styles }) {
   useEffect(() => {
     if (isOpen) {
       window.document.body.style.overflow = 'hidden';
@@ -13,21 +13,26 @@ export default function Modal({ content, title, isOpen, height, maxHeight, click
   return (
     <div className='modal-wrapper' style={{display: !isOpen && 'none'}}>
       <div className="modal" style={{height: height, maxHeight: maxHeight}}>
-        <button
-          type="button"
-          className="close-modal-btn"
-          title="Close modal"
-          tabIndex={0}
-          onClick={() => {
-            clickEffect(isOpen);
-          }}
-        >
-          X
-        </button>
-        {title && <span className="modal-title">{title}</span>}
+        {!hideHeader && <div className="modal-header">
+          {title && <span className="modal-title">{title}</span>}
+        </div>}
         <div className="modal-content" style={styles}>
           {content}
         </div>
+        {footer && <div className="modal-footer">
+          {footer}
+        </div>}
+        <button
+            type="button"
+            className="close-modal-btn"
+            title="Close modal"
+            tabIndex={0}
+            onClick={() => {
+              clickEffect(isOpen);
+            }}
+          >
+            X
+          </button>
       </div>
     </div>
   );

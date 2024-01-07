@@ -33,6 +33,12 @@ export default function Task({ task, children }) {
         cursor: isDragging && 'move',
         visibility: isDragging && 'hidden'
       }}
+      onKeyUp={(e) => {
+        if (e.key == 'Enter') {
+          dispatch(saveIsExpandingTask(true));
+          dispatch(saveCurrentDraggedTask(task));
+        }
+      }}
       onClick={() => {
         dispatch(saveIsExpandingTask(true));
         dispatch(saveCurrentDraggedTask(task));

@@ -71,7 +71,7 @@ export default function AddTaskForm() {
           Description <br /><textarea name="desc" />
         </label>
         <label>
-          Labels <br /><textarea name="labels" title="Provide a list of comma separated labels" />
+          Labels <br /><input type="text" name="labels" title="Provide a list of comma separated labels" />
         </label>
         <label>Status</label>
         <div>

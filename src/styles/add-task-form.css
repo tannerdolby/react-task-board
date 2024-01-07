@@ -7,12 +7,15 @@
     padding: .35rem;
 }
 
+.add-task-form > label {
+    padding: 3px;
+}
 
-.add-task-form textarea[name='desc'],
-.add-task-form textarea[name='labels'] {
-    min-height: 75px;
-    max-height: 110px;
+.add-task-form textarea[name='desc'] {
+    min-height: 55px;
+    max-height: 130px;
     padding: .35rem;
+    height: 55px;
 }
 
 .add-task-form > label,
@@ -48,4 +51,11 @@
 
 .add-task-form input[type="radio"] {
     margin-right: .3rem;
+}
+
+.add-task-form input[type="text"],
+.add-task-form textarea {
+    border: 1px solid rgb(179, 178, 178);
+    border-radius: .2rem;
+    padding: 0.5rem
 }

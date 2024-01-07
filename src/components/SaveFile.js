@@ -30,7 +30,8 @@ export default function SaveFile() {
 
   return (
     <button
-      className="add-task-btn clear-all-btn"
+      title="Save task board to file system"
+      className="add-task-btn light-control-btn"
       onClick={() => saveFile(blob)}
     >
       Save

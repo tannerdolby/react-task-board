@@ -11,6 +11,7 @@ const initialState = {
   isTaskExpanded: false,
   current: {},
   search: '',
+  sortBy: '',
 };
 
 export const taskBoardSlice = createSlice({
@@ -29,15 +30,22 @@ export const taskBoardSlice = createSlice({
         state[fromColumn] = removeItemFromColumn(state, fromColumn, task);
       }
 
-      state[toColumn].push(task);
+      if (toColumn) {
+        state[toColumn].push(task);
+      }
 
       // maintain a temp "history" for tasks using local storage
       const localState = getStoredTaskBoard() || state;
 
       localState[fromColumn] = removeItemFromColumn(localState, fromColumn, task);
-      localState[toColumn].push(task);
+      localState[toColumn]?.push(task);
 
+      window.localStorage.setItem('redux:store', JSON.stringify(state))
       saveTaskBoard(state);
+    },
+    removeTask(state, action) {
+      const payload = action.payload;
+      state[payload.fromColumn] = removeItemFromColumn(state, payload.fromColumn, payload.task);
     },
     saveIsAddingNewItem(state, action) {
       state.isAddingNewItem = Boolean(action.payload);
@@ -60,6 +68,20 @@ export const taskBoardSlice = createSlice({
     },
     saveSearch(state, action) {
       state.search = action.payload;
+    },
+    saveToLocalStorage(state, action) {
+      window.localStorage.setItem('redux:store', JSON.stringify(state));
+    },
+    clearLocalStorage(state, action) {
+      window.localStorage.setItem('redux:store', JSON.stringify({
+        todo: [],
+        'in-progress': [],
+        'in-review': [],
+        completed: []
+      }));
+    },
+    saveSortBy(state, action) {
+      state.sortBy = action.payload;
     }
   }
 });
@@ -69,7 +91,7 @@ function removeItemFromColumn(obj, fromColumn, task) {
     return [];
   }
   return obj[fromColumn]
-    .filter(item => item.id !== task.id);
+    .filter(item => item?.id !== task?.id);
 }
 
 export const {
@@ -77,9 +99,13 @@ export const {
   saveItemToColumn,
   saveIsAddingNewItem,
   saveIsExpandingTask,
+  saveToLocalStorage,
+  clearLocalStorage,
   saveBoard,
+  removeTask,
   clearBoard,
   saveSearch,
+  saveSortBy
 } = taskBoardSlice.actions;
 
 export default taskBoardSlice.reducer;

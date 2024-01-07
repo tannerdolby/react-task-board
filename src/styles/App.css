@@ -46,6 +46,25 @@
   margin: .5rem auto;
 }
 
+.header-inputs .controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+#column-sort-actions {
+    margin-left: 5px;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid #d3d3d3;
+    font-size: 14px;
+    background:rgb(252, 252, 252);
+    /* background: #212121; */
+    color: #333;
+    border-radius: 0.3rem;
+}
+
 .header-inputs .search-bar {
     padding: 0.5rem 0.5rem;
     padding-left: 2.1rem;
@@ -53,13 +72,11 @@
     margin-bottom: 0;
     border-radius: 0.3rem;
     font-size: 14px;
-    width: 100%;
+    width: 25rem;
     background-image: url("../../public/icons/magnifying-glass.svg");
     background-repeat: no-repeat;
     background-size: 17px 17px;
     background-position: 8px 8px;
-    width: 100%;
-    max-width: 300px;
 }
 
 .add-task-btn {
@@ -89,8 +106,12 @@
     margin-right: .5rem;
 }
 
-.task-board-app .clear-all-btn {
+.task-board-app .light-control-btn {
     background: #fff;
     border: 1px solid lightgray;
     color: #000;
+}
+
+.light-control-btn:hover {
+    background: rgb(240, 240, 240);
 }

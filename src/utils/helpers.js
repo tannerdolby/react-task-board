@@ -1,5 +1,5 @@
 export function isValidArray(array) {
-  return array && array?.length && Array.isArray(array);
+  return array && Array.isArray(array);
 }
 
 export function reduceToSet(arrays) {
