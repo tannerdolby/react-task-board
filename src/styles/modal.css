@@ -16,7 +16,7 @@
 
 .modal .close-modal-btn {
     position: absolute;
-    top: .5rem;
+    top: .75rem;
     right: 1rem;
     color: #000;
     font-weight: 500;
@@ -57,7 +57,6 @@
     font-size: 1.5rem;
     grid-row: 1 / 2;
     grid-column: 1 / 15;
-    border-bottom: 1px solid lightgray;
     padding: 1rem 0;
     display: block;
 }
