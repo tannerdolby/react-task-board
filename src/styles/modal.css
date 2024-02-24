@@ -16,11 +16,13 @@
 
 .modal .close-modal-btn {
     position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     top: .75rem;
     right: 1rem;
     color: #000;
     font-weight: 500;
-    padding: .5rem;
     border: none;
     background: inherit;
     font-size: 1.2rem;
