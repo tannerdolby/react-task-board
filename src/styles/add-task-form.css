@@ -1,6 +1,5 @@
 .add-task-form {
     padding: 1rem;
-    position: relative;
 }
 
 .add-task-form input[name='title'] {
@@ -30,8 +29,12 @@
     justify-content: flex-start;
     align-items: center;
     margin-top: 1.25rem;
-    grid-column: 1 / 7;
-    grid-row: 3 / 4;
+    position: absolute;
+    bottom: .9rem;
+}
+
+.add-task-form button {
+    padding: .5rem 1rem;
 }
 
 .add-task-form-btns .submit-btn {

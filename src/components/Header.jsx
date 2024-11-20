@@ -1,12 +1,12 @@
 import { saveIsAddingNewItem, clearBoard, clearLocalStorage } from "../redux/features/task-board-slice";
 import { useAppSelector, useAppDispatch } from "../redux/app/hooks";
-// import { clearStoredTasks } from "../utils/localStorage";
 import AddTaskForm from "./AddTaskForm";
 import Modal from "./Modal";
 import Search from "./Search";
 import SaveFile from "./SaveFile";
 import GitHubIcon from "./icons/GithubIcon";
 import SortActions from "./SortActions";
+import ThemeSwitch from "./ThemeSwitch";
 
 export default function Header() {
   const taskBoardState = useAppSelector(state => state.taskBoard);
@@ -27,12 +27,7 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <img
-              src="https://tannerdolby.com/images/arc1.png"
-              alt="Archimedean spiral icon"
-              width="27"
-              height="27"
-            />
+            <ThemeSwitch />
           </li>
         </ul>
       </div>
@@ -47,21 +42,21 @@ export default function Header() {
             onClick={() => {
               dispatch(saveIsAddingNewItem(true));
             }}
-            className="add-task-btn"
+            className="add-task-btn btn"
           >
-            <span>+</span> New Task
-        </button>
+            New Task <span className="plus-sign">+</span>
+          </button>
           <button
             title="Clear task board"
-            className="light-control-btn"
+            className="clear-board-btn light-control-btn"
             onClick={() => {
               dispatch(clearBoard());
               dispatch(clearLocalStorage());
             }}
           >
             Clear
-        </button>
-        <SaveFile />
+          </button>
+          <SaveFile />
         </div>
         <Modal
           content={<AddTaskForm />}

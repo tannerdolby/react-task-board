@@ -1,28 +1,26 @@
 import { useDrag } from 'react-dnd';
 import { ITEM_TYPE } from '../utils/constants';
-import { useAppDispatch } from '../redux/app/hooks';
-import { saveCurrentDraggedTask, saveIsExpandingTask } from '../redux/features/task-board-slice';
+import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
+import { saveCurrentDraggedTask, saveIsExpandingTask, taskBoardSlice } from '../redux/features/task-board-slice';
 import { isValidArray } from '../utils/helpers';
 import '../styles/task.css';
 
 export default function Task({ task, children }) {
   const dispatch = useAppDispatch();
-  const [{ isDragging }, dragRef] = useDrag(
-    () => ({
-      type: ITEM_TYPE.TASK,
-      item: { task },
-      collect: (monitor) => ({
-        isDragging: Boolean(monitor.isDragging()),
-      }),
+  const taskboardState = useAppSelector((state) => state.taskBoard);
+  const [{ isDragging }, dragRef] = useDrag(() => ({
+    type: ITEM_TYPE.TASK,
+    item: { task },
+    collect: (monitor) => ({
+      isDragging: Boolean(monitor.isDragging()),
     }),
-    []
-  );
+  }), []);
 
   if (!task) {
     return '';
   }
 
-  const { title, desc, labels} = task;
+  const { title, desc, labels } = task;
 
   return (
     <div
@@ -31,7 +29,7 @@ export default function Task({ task, children }) {
       tabIndex={0}
       style={{
         cursor: isDragging && 'move',
-        visibility: isDragging && 'hidden'
+        visibility: isDragging && 'hidden',
       }}
       onKeyUp={(e) => {
         if (e.key === 'Enter') {

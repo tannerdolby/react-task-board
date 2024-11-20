@@ -9,7 +9,8 @@ export default function Column({ column }) {
   const columnName = column.label.toLowerCase();
   const taskBoardState = useAppSelector(state => state.taskBoard);
   const [columnTasks, setColumnTasks] = useState(taskBoardState[column]);
-  const currentTask = useAppSelector(state => state.taskBoard.current);
+  const theme = taskBoardState.theme;
+  const currentTask = taskBoardState.current;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function Column({ column }) {
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: ITEM_TYPE.TASK,
     drop: () => {
+      console.log('currentTask', currentTask);
       const columnKey = column.label.toLowerCase();
       const updatedStatusTask = { ...currentTask, status: columnKey };
       dispatch(saveItemToColumn({
@@ -49,9 +51,14 @@ export default function Column({ column }) {
     }),
   }), [currentTask]);
 
+  const themes = {
+    background: theme === 'dark' ? '#111' : '#eee',
+    // backgroundHover: 
+  };
+
   return (
     <div className="board-column" ref={dropRef} style={{
-      background: isOver && '#eee'
+      background: isOver && themes.background,
     }}>
       <div className="column-header">
         <div className="column-identifier">{column.label} <span>{column.emoji}</span></div>

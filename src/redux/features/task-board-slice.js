@@ -12,6 +12,7 @@ const initialState = {
   current: {},
   search: '',
   sortBy: '',
+  theme: 'light',
 };
 
 export const taskBoardSlice = createSlice({
@@ -82,7 +83,10 @@ export const taskBoardSlice = createSlice({
     },
     saveSortBy(state, action) {
       state.sortBy = action.payload;
-    }
+    },
+    saveTheme(state, action) {
+      state.theme = action.payload;
+    },
   }
 });
 
@@ -105,7 +109,8 @@ export const {
   removeTask,
   clearBoard,
   saveSearch,
-  saveSortBy
+  saveSortBy,
+  saveTheme,
 } = taskBoardSlice.actions;
 
 export default taskBoardSlice.reducer;

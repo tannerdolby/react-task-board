@@ -47,11 +47,13 @@ function DisplayTask({ task }) {
   if (!task) return '';
 
   return (
-    <div className="display-task" style={{
-      padding: '0 2rem',
-      fontSize: "1rem",
-      // height: '100%'
-    }}>
+    <div
+      className="display-task"
+      style={{
+        padding: '0 2rem',
+        fontSize: '1rem',
+      }}
+    >
       <h3
         style={{
           fontSize: '2rem',

@@ -71,13 +71,14 @@
     border-radius: 0.3rem;
     font-size: 14px;
     width: 25rem;
-    background-image: url("../../public/icons/magnifying-glass.svg");
+    background-image: url("../magnifying-glass.svg");
     background-repeat: no-repeat;
     background-size: 17px 17px;
     background-position: 8px 8px;
 }
 
-.add-task-btn {
+.add-task-btn,
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,9 +100,12 @@
     background: #1563cf;
 }
 
-.add-task-btn span {
-    font-size: 1.5rem;
+.add-task-btn .plus-sign {
+    font-size: 1.2rem;
     margin-right: .5rem;
+    position: relative;
+    bottom: 1.5px;
+    left: 8px;
 }
 
 .task-board-app .light-control-btn {
@@ -112,4 +116,56 @@
 
 .light-control-btn:hover {
     background: rgb(240, 240, 240);
+}
+
+body[class='dark-theme'] {
+    background: rgb(8, 8, 8);
+    color: #eee;
+}
+
+body[class='dark-theme'] h1,
+body[class='dark-theme'] h2,
+body[class='dark-theme'] h3,
+body[class='dark-theme'] h4,
+body[class='dark-theme'] h5 {
+    color: rgb(228, 226, 226);
+}
+
+body[class='dark-theme'] .board-column {
+    background: rgb(12, 12, 12);
+}
+
+body[class='dark-theme'] .column-count {
+    background: #222;
+}
+
+body[class='dark-theme'] .clear-board-btn,
+body[class='dark-theme'] .save-board-btn {
+    background: #111;
+    border-color: #222;
+    color: #eee;
+}
+
+body[class='dark-theme'] .clear-board-btn:hover,
+body[class='dark-theme'] .save-board-btn:hover {
+    background: #151515;
+}
+
+body[class='dark-theme'] .search-bar,
+body[class='dark-theme'] #column-sort-actions {
+    background-color: #111;
+    border-color: #222;
+    color: #eee;
+}
+
+body[class='dark-theme'] .task {
+    background: #151515;
+    border-color: #222;
+    box-shadow: 0.5px 1px 1px 0px #333;
+    color: #eee;
+}
+
+body[class='dark-theme'] .task__labels li {
+    background: #252525;
+    color: #eee;
 }

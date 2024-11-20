@@ -76,13 +76,12 @@
 }
 
 .modal-content {
-    --h: 60;
     width: 100%;
     overflow-y: auto;
     height: 100%;
-    grid-row: 2 / 18;
+    grid-row: 2 / span 10;
     grid-column: 1 / 15;
-    padding-bottom: .75rem;
+    padding-bottom: 1.5rem;
 }
 
 .modal-footer {

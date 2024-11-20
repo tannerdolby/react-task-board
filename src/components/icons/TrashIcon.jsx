@@ -2,15 +2,16 @@ export default function TrashIcon() {
     return (
     <svg version="1.1" baseProfile="basic" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px"
         y="0px" viewBox="0 0 100 100" space="preserve" width="30" height="30">
-        <path style={{
-  "fill": "none",
-  "stroke": "#000000",
-  "strokeWidth": "2",
-  "strokeLinecap": "round",
-  "strokeLinejoin": "round",
-  "strokeMiterlimit": "10"
-}} d="M23.901,48.469c-0.323-4.916-0.601-9.516-0.872-14.435"/>
-TannerDolby@tannerdolby reactify-styles % node parser.js
+        <path
+          style={{
+            "fill": "none",
+            "stroke": "#000000",
+            "strokeWidth": "2",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeMiterlimit": "10"
+          }} 
+          d="M23.901,48.469c-0.323-4.916-0.601-9.516-0.872-14.435"/>
 <path style={{
   "fill": "none",
   "stroke": "#000000",
