@@ -11,10 +11,8 @@ import { useState } from 'react';
 import Alert from './Alert';
 
 function checkForExistingTask(taskTitle, tasks) {
-  console.log(GRID_COLUMNS_LIST)
   const checkTitle = (v) => v.title === taskTitle;
   for (const column of GRID_COLUMNS_LIST) {
-    console.log(column, tasks[column.toLowerCase()], taskTitle)
     if (tasks[column.toLowerCase()].find(checkTitle)) {
       return true;
     }
@@ -26,7 +24,6 @@ export default function AddTaskForm() {
   const dispatch = useAppDispatch();
   const taskBoardState = useAppSelector((state) => state.taskBoard);
   const [hasError, setHasError] = useState(false);
-  const formRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
