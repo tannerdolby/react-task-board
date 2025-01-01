@@ -6,7 +6,7 @@ import Search from "./Search";
 import SaveFile from "./SaveFile";
 import GitHubIcon from "./icons/GithubIcon";
 import SortActions from "./SortActions";
-import ThemeSwitch from "./ThemeSwitch";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Header() {
   const taskBoardState = useAppSelector(state => state.taskBoard);
@@ -18,16 +18,16 @@ export default function Header() {
         <h1>Task Board</h1>
         <ul>
           <li>
+            <ThemeSwitcher />
+          </li>
+          <li>
             <a
               className="github-icon"
               href="https://github.com/tannerdolby/react-task-board"
-              title="Link to react-task-board repository on GitHub"
+              title="Link to repository on GitHub"
             >
-              <GitHubIcon />
+              <GitHubIcon theme={taskBoardState.theme} />
             </a>
-          </li>
-          <li>
-            <ThemeSwitch />
           </li>
         </ul>
       </div>

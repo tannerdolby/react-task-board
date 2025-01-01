@@ -26,7 +26,8 @@ export default function AddTaskForm() {
   const dispatch = useAppDispatch();
   const taskBoardState = useAppSelector((state) => state.taskBoard);
   const [hasError, setHasError] = useState(false);
-  console.log('hasError', hasError);
+  const formRef = useRef(null);
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -34,7 +35,6 @@ export default function AddTaskForm() {
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
 
-    console.log(checkForExistingTask(formJson.title, taskBoardState))
     if (checkForExistingTask(formJson.title, taskBoardState)) {
       setHasError(true);
     } else {
@@ -99,7 +99,7 @@ export default function AddTaskForm() {
             type="submit"
           >
             Create Task
-        </button>
+          </button>
           <button className="reset-btn" type="reset">Reset</button>
         </div>
       </form>

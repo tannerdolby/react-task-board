@@ -4,13 +4,16 @@ export function isValidArray(array) {
 
 export function reduceToSet(arrays) {
   if (!isValidArray(arrays)) return;
-  const arr = [];
+  const res = [];
   for (const array of arrays) {
-    arr.push(...array);
+    if (isValidArray(array)) {
+      res.push(...array);
+    }
   }
-  return new Set(arr);
+  return new Set(res);
 }
 
 export function getLastItem(array) {
+  if (!isValidArray(array)) return;
   return array[array.length-1];
 }

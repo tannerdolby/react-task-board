@@ -7,7 +7,6 @@ import '../styles/task.css';
 
 export default function Task({ task, children }) {
   const dispatch = useAppDispatch();
-  const taskboardState = useAppSelector((state) => state.taskBoard);
   const [{ isDragging }, dragRef] = useDrag(() => ({
     type: ITEM_TYPE.TASK,
     item: { task },

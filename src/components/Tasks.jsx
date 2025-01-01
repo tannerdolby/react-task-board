@@ -1,4 +1,5 @@
 import '../styles/task-list.css';
+import PropTypes from 'prop-types';
 import Task from './Task';
 import Modal from './Modal';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks';
@@ -23,7 +24,7 @@ export default function Tasks({ tasks }) {
             <li key={i}>
               <Modal
                 maxHeight='450px'
-                styles={{gridRow: '1 / 18', padding: '1rem 0'}}
+                styles={{ gridRow: '1 / 18', padding: '1rem 0' }}
                 hideHeader={true}
                 content={<DisplayTask task={currentTask} />}
                 footer={<TaskCardActions />}
@@ -45,7 +46,6 @@ export default function Tasks({ tasks }) {
 
 function DisplayTask({ task }) {
   if (!task) return '';
-
   return (
     <div
       className="display-task"
@@ -63,17 +63,25 @@ function DisplayTask({ task }) {
       >
         {task.title}
       </h3>
-      {task.date && 
-        <div style={{fontSize: '1rem'}}>
-          Created on {new Date(task.date).toLocaleString()}
+      {task.date &&
+        <div style={{ fontSize: '1rem' }}>
+          Created: {new Date(task.date).toLocaleString()}
           <br />
           Status: {task.status}
         </div>
       }
-      <p className="task__desc" style={{margin: '1rem 0'}}>
+      <p className="task__desc" style={{ margin: '1rem 0' }}>
         {task.desc}
       </p>
       <Labels labels={task.labels} />
     </div>
   );
 }
+
+Tasks.propTypes = {
+  tasks: PropTypes.array,
+};
+
+DisplayTask.propTypes = {
+  task: PropTypes.object,
+};

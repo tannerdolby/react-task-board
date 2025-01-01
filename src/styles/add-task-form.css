@@ -39,17 +39,17 @@
 
 .add-task-form-btns .submit-btn {
     margin-right: .5rem;
-    border: 1px solid transparent;
+    border: 1px solid lightgray;
 }
 
 .add-task-form-btns .reset-btn {
-    background: #eee;
     color: #000;
     border: 1px solid lightgray;
 }
 
+.add-task-form-btns .submit-btn:hover,
 .add-task-form-btns .reset-btn:hover {
-    background: rgb(224, 224, 224);
+    background: rgb(239, 239, 239);
 }
 
 .add-task-form input[type="radio"] {

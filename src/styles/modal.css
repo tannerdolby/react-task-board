@@ -22,10 +22,9 @@
     top: .75rem;
     right: 1rem;
     color: #000;
-    font-weight: 500;
+    font-weight: 800;
     border: none;
     background: inherit;
-    font-size: 1.2rem;
     background: transparent;
 }
 
@@ -73,6 +72,8 @@
     line-height: normal;
     font-weight: 700;
     color: #212121;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
 }
 
 .modal-content {
@@ -104,6 +105,43 @@ input[type="radio"] + label {
 
 select.light-control-btn {
     border-radius: 0.25rem;
-    padding: 0.4rem 1rem;
+    /* padding: 0.4rem 1rem; */
+    padding: 0.5em 1.2em;
+    padding: .25rem .75rem;
     font-size: 14px;
+}
+
+body[class='dark-theme'] .modal {
+    background: #111;
+    color: #eee;
+    border-color: #333;
+}
+
+body[class='dark-theme'] .modal-title {
+    color: #eee;
+}
+
+body[class='dark-theme'] .modal input[type='text'],
+body[class='dark-theme'] .modal textarea {
+    background: #171717;
+    border-color: #333;
+    color: #eee;
+}
+
+body[class='dark-theme'] .close-modal-btn {
+    color: #eee;
+}
+
+body[class='dark-theme'] .close-modal-btn:hover {
+    background: #222;
+}
+
+body[class='dark-theme'] .add-task-form-btns button {
+    background: #222;
+    color: #eee;
+    border-color: #333;
+}
+
+body[class='dark-theme'] .add-task-form-btns button:hover {
+    background: #333;
 }

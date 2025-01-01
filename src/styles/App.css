@@ -118,8 +118,12 @@
     background: rgb(240, 240, 240);
 }
 
+.theme-icon {
+    font-size: 1.4rem;
+}
+
 body[class='dark-theme'] {
-    background: rgb(8, 8, 8);
+    background: rgb(10, 10, 10);
     color: #eee;
 }
 
@@ -132,11 +136,11 @@ body[class='dark-theme'] h5 {
 }
 
 body[class='dark-theme'] .board-column {
-    background: rgb(12, 12, 12);
+    background: rgb(18, 18, 18);
 }
 
 body[class='dark-theme'] .column-count {
-    background: #222;
+    background: #212121;
 }
 
 body[class='dark-theme'] .clear-board-btn,
@@ -148,7 +152,7 @@ body[class='dark-theme'] .save-board-btn {
 
 body[class='dark-theme'] .clear-board-btn:hover,
 body[class='dark-theme'] .save-board-btn:hover {
-    background: #151515;
+    background: #222;
 }
 
 body[class='dark-theme'] .search-bar,
@@ -159,13 +163,24 @@ body[class='dark-theme'] #column-sort-actions {
 }
 
 body[class='dark-theme'] .task {
-    background: #151515;
-    border-color: #222;
+    background: #191919;
+    background: rgb(17, 17, 17);
+    border-color: #333;
     box-shadow: 0.5px 1px 1px 0px #333;
     color: #eee;
 }
 
+body[class='dark-theme'] .task:hover {
+    border-color: #444;
+}
+
 body[class='dark-theme'] .task__labels li {
     background: #252525;
+    color: #eee;
+}
+
+body[class='dark-theme'] .task-card-actions .light-control-btn {
+    background-color: #222;
+    border-color: #333;
     color: #eee;
 }
