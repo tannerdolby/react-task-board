@@ -77,6 +77,10 @@
     background-position: 8px 8px;
 }
 
+footer {
+    font-size: .9rem;
+}
+
 .add-task-btn,
 .btn {
     display: flex;
@@ -146,7 +150,7 @@ body[class='dark-theme'] .column-count {
 body[class='dark-theme'] .clear-board-btn,
 body[class='dark-theme'] .save-board-btn {
     background: #111;
-    border-color: #222;
+    border: 1px solid #333;
     color: #eee;
 }
 
@@ -164,7 +168,7 @@ body[class='dark-theme'] #column-sort-actions {
 
 body[class='dark-theme'] .task {
     background: #191919;
-    background: rgb(17, 17, 17);
+    background: rgb(12, 12, 12);
     border-color: #333;
     box-shadow: 0.5px 1px 1px 0px #333;
     color: #eee;
@@ -181,6 +185,75 @@ body[class='dark-theme'] .task__labels li {
 
 body[class='dark-theme'] .task-card-actions .light-control-btn {
     background-color: #222;
-    border-color: #333;
+    border: 1px solid #333;
     color: #eee;
+}
+
+body[class='dark-theme'] .task-card-actions .light-control-btn:hover {
+    background-color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: rgb(10, 10, 10);
+        color: #eee;
+    }
+    
+    body h1,
+    body h2,
+    body h3,
+    body h4,
+    body h5 {
+        color: rgb(228, 226, 226);
+    }
+    
+    body .board-column {
+        background: rgb(18, 18, 18);
+    }
+    
+    body .column-count {
+        background: #212121;
+    }
+    
+    body .clear-board-btn,
+    body .save-board-btn {
+        background: #111;
+        border: 1px solid #333;
+        color: #eee;
+    }
+    
+    body .clear-board-btn:hover,
+    body .save-board-btn:hover {
+        background: #222;
+    }
+    
+    body .search-bar,
+    body #column-sort-actions {
+        background-color: #111;
+        border-color: #222;
+        color: #eee;
+    }
+    
+    body .task {
+        background: #191919;
+        background: rgb(17, 17, 17);
+        border-color: #333;
+        box-shadow: 0.5px 1px 1px 0px #333;
+        color: #eee;
+    }
+    
+    body .task:hover {
+        border-color: #444;
+    }
+    
+    body .task__labels li {
+        background: #252525;
+        color: #eee;
+    }
+    
+    body .task-card-actions .light-control-btn {
+        background-color: #222;
+        border: 1px solid #333;
+        color: #eee;
+    }
 }

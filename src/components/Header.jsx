@@ -62,7 +62,7 @@ export default function Header() {
           content={<AddTaskForm />}
           isOpen={taskBoardState.isAddingNewItem}
           title="Add Task"
-          clickEffect={(isOpen) => dispatch(saveIsAddingNewItem(!isOpen))}
+          onClose={() => dispatch(saveIsAddingNewItem(false))}
         />
       </div>
     </div>

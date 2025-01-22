@@ -24,8 +24,7 @@ export default function Column({ column }) {
         case 'created-at':
           return b.date - a.date;
         case 'last-updated':
-          // TODO
-          break;
+          return b.updatedAt - a.updatedAt;
         default:
           break;
       }

@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import '../styles/modal.css';
 
-export default function Modal({ content, title, footer, hideHeader, isOpen, height, maxHeight, clickEffect, styles }) {
+export default function Modal({ content, title, footer, hideHeader, isOpen, height, maxHeight, onClose, styles }) {
   useEffect(() => {
     if (isOpen) {
       window.document.body.style.overflow = 'hidden';
@@ -28,7 +28,7 @@ export default function Modal({ content, title, footer, hideHeader, isOpen, heig
             title="Close modal"
             tabIndex={0}
             onClick={() => {
-              clickEffect(isOpen);
+              onClose(isOpen);
             }}
           >
             X

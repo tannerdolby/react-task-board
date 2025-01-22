@@ -29,8 +29,8 @@ export default function Tasks({ tasks }) {
                 content={<DisplayTask task={currentTask} />}
                 footer={<TaskCardActions />}
                 isOpen={isTaskExpanded}
-                clickEffect={(isExpanded) => {
-                  dispatch(saveIsExpandingTask(!isExpanded));
+                onClose={() => {
+                  dispatch(saveIsExpandingTask(false));
                 }}
               />
               <Task
@@ -66,6 +66,8 @@ function DisplayTask({ task }) {
       {task.date &&
         <div style={{ fontSize: '1rem' }}>
           Created: {new Date(task.date).toLocaleString()}
+          <br />
+          {task.updatedAt && "Last Updated: " + new Date(task.updatedAt).toLocaleString()}
           <br />
           Status: {task.status}
         </div>

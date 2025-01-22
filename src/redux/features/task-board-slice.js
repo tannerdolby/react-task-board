@@ -1,6 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { saveTaskBoard, getStoredTaskBoard } from '../../utils/localStorage';
+import {
+  saveTaskBoard,
+  getStoredTaskBoard,
+  resetToIntialState
+} from '../../utils/localStorage';
 import { isValidArray } from '../../utils/helpers';
+
+function removeItemFromColumn(obj, column, task) {
+  if (!obj || !isValidArray(obj[column])) {
+    return [];
+  }
+  return obj[column]?.filter(item => item?.id !== task?.id);
+}
 
 const initialState = {
   todo: [],
@@ -8,6 +19,7 @@ const initialState = {
   'in-review': [],
   completed: [],
   isAddingNewItem: false,
+  isEditingTask: false,
   isTaskExpanded: false,
   current: {},
   search: '',
@@ -17,39 +29,46 @@ const initialState = {
 
 export const taskBoardSlice = createSlice({
   name: 'taskBoard',
-  initialState,
+  initialState: (getStoredTaskBoard() || initialState),
   reducers: {
     saveCurrentDraggedTask(state, action) {
       state.current = action.payload;
     },
     saveItemToColumn(state, action) {
       const { task, fromColumn, toColumn } = action.payload;
-
       if (fromColumn === toColumn) return;
-
+      if (toColumn) state[toColumn].push(task);
       if (fromColumn) {
         state[fromColumn] = removeItemFromColumn(state, fromColumn, task);
       }
-
-      if (toColumn) {
-        state[toColumn].push(task);
-      }
-
-      // maintain a temp "history" for tasks using local storage
-      const localState = getStoredTaskBoard() || state;
-
-      localState[fromColumn] = removeItemFromColumn(localState, fromColumn, task);
-      localState[toColumn]?.push(task);
-
-      window.localStorage.setItem('redux:store', JSON.stringify(state))
       saveTaskBoard(state);
     },
     removeTask(state, action) {
-      const payload = action.payload;
-      state[payload.fromColumn] = removeItemFromColumn(state, payload.fromColumn, payload.task);
+      const { task, fromColumn } = action.payload;
+      state[fromColumn] = removeItemFromColumn(state, fromColumn, task);
+    },
+    updateTask(state, action) {
+      const { task, fromColumn, toColumn } = action.payload;
+      if (toColumn) {
+        state[fromColumn] = removeItemFromColumn(state, fromColumn, task);
+        state[toColumn].push(task);
+      } else {
+        for (let i = 0; i < state[fromColumn].length; i++) {
+          const t = state[fromColumn][i];
+          console.log('check', t.id, task.id);
+          if (t.id === task.id) {
+            console.log('grrr', t, task);
+            state[fromColumn][i] = task;
+          }
+        }
+      }
+      saveTaskBoard(state);
     },
     saveIsAddingNewItem(state, action) {
       state.isAddingNewItem = Boolean(action.payload);
+    },
+    saveIsEditingTask(state, action) {
+      state.isEditingTask = Boolean(action.payload);
     },
     saveIsExpandingTask(state, action) {
       state.isTaskExpanded = Boolean(action.payload);
@@ -71,38 +90,28 @@ export const taskBoardSlice = createSlice({
       state.search = action.payload;
     },
     saveToLocalStorage(state, action) {
-      window.localStorage.setItem('redux:store', JSON.stringify(state));
+      saveTaskBoard(state);
     },
     clearLocalStorage(state, action) {
-      window.localStorage.setItem('redux:store', JSON.stringify({
-        todo: [],
-        'in-progress': [],
-        'in-review': [],
-        completed: []
-      }));
+      resetToIntialState();
     },
     saveSortBy(state, action) {
       state.sortBy = action.payload;
     },
     saveTheme(state, action) {
       state.theme = action.payload;
+      saveTaskBoard(state);
     },
   }
 });
-
-function removeItemFromColumn(obj, fromColumn, task) {
-  if (!obj || !isValidArray(obj[fromColumn])) {
-    return [];
-  }
-  return obj[fromColumn]
-    .filter(item => item?.id !== task?.id);
-}
 
 export const {
   saveCurrentDraggedTask,
   saveItemToColumn,
   saveIsAddingNewItem,
+  saveIsEditingTask,
   saveIsExpandingTask,
+  updateTask,
   saveToLocalStorage,
   clearLocalStorage,
   saveBoard,

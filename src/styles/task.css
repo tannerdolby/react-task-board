@@ -84,6 +84,8 @@
 .task-card-actions {
     padding: 0 1rem;
     display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
     align-items: center;
     width: 100%;
 }
@@ -91,12 +93,14 @@
 .task-card-actions button,
 .task-card-actions select {
     font-size: .9rem;
-    padding: 0.5em 1.2em;
-    padding: .25rem .75rem;
+    padding: 0.5rem 1rem;
 }
 
-.task-card-actions select:hover {
+.task-card-actions button.light-control-btn:hover,
+.task-card-actions select.light-control-btn:hover  {
     cursor: pointer;
+    background: rgb(239, 239, 239);
+    /* background: red !important; */
 }
 
 .task-card-actions select.light-control-btn {
@@ -115,10 +119,10 @@
    padding: .35rem 1rem;
    border: 1px solid transparent;
    font-weight: 500;
-
 }
 
 .delete-task-btn:hover {
     background: rgb(228, 6, 6);
+    border: 1px solid transparent;
     cursor: pointer;
 }
