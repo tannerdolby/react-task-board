@@ -49,6 +49,13 @@ export default function AddTaskForm({ task = {} }) {
     setStatus(task.status || 'todo');
   }, [task.title, task.desc, task.labels, task.status]);
 
+  function resetFormState() {
+    setTitle('');
+    setDesc('');
+    setLabels('');
+    setStatus('todo');
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -56,8 +63,6 @@ export default function AddTaskForm({ task = {} }) {
     const form = e.target;
     const formData = new FormData(form);
     let formJson = Object.fromEntries(formData.entries());
-    console.log('task', task);
-    console.log(isEditing, checkForExistingTask(formJson.title, taskBoardState))
 
     if (!isEditing && checkForExistingTask(formJson.title, taskBoardState)) {
       setHasError(true);
@@ -88,6 +93,7 @@ export default function AddTaskForm({ task = {} }) {
     }
     setHasError(false);
     form.reset();
+    resetFormState();
   }
 
   return (
@@ -136,12 +142,7 @@ export default function AddTaskForm({ task = {} }) {
           >
             {taskBoardState.isEditingTask ? 'Save' : 'Create'} Task
           </button>
-          {!taskBoardState.isEditingTask ? <button className="reset-btn" type="reset" onClick={() => {
-            setTitle('');
-            setDesc('');
-            setLabels('');
-            setStatus('todo');
-          }}>Reset</button> : <button onClick={() => dispatch(saveIsEditingTask(false))}>Cancel</button>}
+          {!taskBoardState.isEditingTask ? <button className="reset-btn" type="reset" onClick={resetFormState}>Reset</button> : <button onClick={() => dispatch(saveIsEditingTask(false))}>Cancel</button>}
         </div>
       </form>
     </>
