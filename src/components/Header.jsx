@@ -25,6 +25,7 @@ export default function Header() {
               className="github-icon"
               href="https://github.com/tannerdolby/react-task-board"
               title="Link to repository on GitHub"
+              target="_blank"
             >
               <GitHubIcon theme={taskBoardState.theme} />
             </a>

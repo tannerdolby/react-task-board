@@ -21,7 +21,8 @@ export default function ThemeSwitcher() {
       style={{
         background: 'transparent',
         border: 'none',
-        padding: 0
+        padding: 0,
+        outline: 'none'
       }}
       onClick={() => {
         if (theme === 'dark') {
