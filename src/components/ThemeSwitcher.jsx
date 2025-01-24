@@ -40,8 +40,8 @@ export default function ThemeSwitcher() {
 
 function ThemeIcon({ theme }) {
   const themes = {
-    light: '🌙',
-    dark: '☀️'
+    dark: '🌙',
+    light: '☀️'
   };
 
   if (Object.hasOwn(themes, theme)) {
