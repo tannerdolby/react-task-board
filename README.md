@@ -1,8 +1,10 @@
-# React + Vite
+# Task Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![light mode demo](https://github.com/user-attachments/assets/654468a9-2fc4-4086-af17-4b4366fbf514)
 
-Currently, two official plugins are available:
+![dark mode demo](https://github.com/user-attachments/assets/0aaaf796-5157-4c8c-92fa-5eb15a45621c)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Usage
+
+- `npm i`
+- `npm run dev`
