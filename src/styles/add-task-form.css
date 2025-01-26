@@ -28,9 +28,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 1.25rem;
     position: absolute;
     bottom: .9rem;
+    width: -webkit-fill-available;
+    background: #fff;
+}
+
+body[class='dark-theme'] .add-task-form-btns {
+    background: #111;
 }
 
 .add-task-form button {

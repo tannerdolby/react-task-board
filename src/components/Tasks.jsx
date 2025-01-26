@@ -23,7 +23,7 @@ export default function Tasks({ tasks }) {
           return (
             <li key={i}>
               <Modal
-                maxHeight='450px'
+                maxHeight='425px'
                 styles={{ gridRow: '1 / 18', padding: '1rem 0' }}
                 hideHeader={true}
                 content={<DisplayTask task={currentTask} />}
@@ -64,15 +64,14 @@ function DisplayTask({ task }) {
         {task.title}
       </h3>
       {task.date &&
-        <div style={{ fontSize: '1rem' }}>
-          Created: {new Date(task.date).toLocaleString()}
-          <br />
-          {task.updatedAt && "Last Updated: " + new Date(task.updatedAt).toLocaleString()}
-          <br />
-          Status: {task.status}
+        <div style={{ fontSize: '1rem', display: 'flex', flexDirection: 'column' }}>
+          <span>Status: {task.status}</span>
+          <span>Created: {new Date(task.date).toLocaleString()}</span>
+          {task.updatedAt && <span>Last Updated: {new Date(task.updatedAt).toLocaleString()}</span>}
+          
         </div>
       }
-      <p className="task__desc" style={{ margin: '1rem 0' }}>
+      <p className="task__desc" style={{ margin: '1.5rem 0' }}>
         {task.desc}
       </p>
       <Labels labels={task.labels} />

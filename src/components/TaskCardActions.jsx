@@ -61,7 +61,6 @@ export default function TaskCardActions() {
         </button>
       </div>
       <Modal
-        maxHeight='450px'
         title="Edit Task"
         content={<AddTaskForm task={taskBoardState.current} isEditing={taskBoardState.isEditing} />}
         isOpen={taskBoardState.isEditingTask}

@@ -47,6 +47,7 @@ export default function Header() {
           >
             New Task <span className="plus-sign">+</span>
           </button>
+          <SaveFile />
           <button
             title="Clear task board"
             className="clear-board-btn light-control-btn"
@@ -57,7 +58,6 @@ export default function Header() {
           >
             Clear
           </button>
-          <SaveFile />
         </div>
         <Modal
           content={<AddTaskForm />}

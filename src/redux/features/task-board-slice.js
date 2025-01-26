@@ -33,6 +33,7 @@ export const taskBoardSlice = createSlice({
   reducers: {
     saveCurrentDraggedTask(state, action) {
       state.current = action.payload;
+      saveTaskBoard(state);
     },
     saveItemToColumn(state, action) {
       const { task, fromColumn, toColumn } = action.payload;
@@ -46,6 +47,7 @@ export const taskBoardSlice = createSlice({
     removeTask(state, action) {
       const { task, fromColumn } = action.payload;
       state[fromColumn] = removeItemFromColumn(state, fromColumn, task);
+      saveTaskBoard(state);
     },
     updateTask(state, action) {
       const { task, fromColumn, toColumn } = action.payload;
@@ -66,12 +68,15 @@ export const taskBoardSlice = createSlice({
     },
     saveIsAddingNewItem(state, action) {
       state.isAddingNewItem = Boolean(action.payload);
+      saveTaskBoard(state);
     },
     saveIsEditingTask(state, action) {
       state.isEditingTask = Boolean(action.payload);
+      saveTaskBoard(state);
     },
     saveIsExpandingTask(state, action) {
       state.isTaskExpanded = Boolean(action.payload);
+      saveTaskBoard(state);
     },
     saveBoard(state, action) {
       const payload = action.payload;
@@ -85,9 +90,11 @@ export const taskBoardSlice = createSlice({
       state['in-progress'] = [];
       state['in-review'] = [];
       state.completed = [];
+      saveTaskBoard(state);
     },
     saveSearch(state, action) {
       state.search = action.payload;
+      saveTaskBoard(state);
     },
     saveToLocalStorage(state, action) {
       saveTaskBoard(state);
@@ -97,6 +104,7 @@ export const taskBoardSlice = createSlice({
     },
     saveSortBy(state, action) {
       state.sortBy = action.payload;
+      saveTaskBoard(state);
     },
     saveTheme(state, action) {
       state.theme = action.payload;

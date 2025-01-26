@@ -36,8 +36,7 @@ export default function Column({ column }) {
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: ITEM_TYPE.TASK,
     drop: () => {
-      console.log('currentTask', currentTask);
-      const columnKey = column.label.toLowerCase();
+      const columnKey = columnName || 'todo';
       const updatedStatusTask = { ...currentTask, status: columnKey };
       dispatch(saveItemToColumn({
         task: updatedStatusTask,
@@ -51,8 +50,7 @@ export default function Column({ column }) {
   }), [currentTask]);
 
   const themes = {
-    background: theme === 'dark' ? '#111' : '#eee',
-    // backgroundHover: 
+    background: theme === 'dark' ? '#161616' : '#eee',
   };
 
   return (
