@@ -1,9 +1,9 @@
 # Kanban Board
 A task/kanban board built with React and Redux.
 
-![light mode demo](https://github.com/user-attachments/assets/654468a9-2fc4-4086-af17-4b4366fbf514)
-
 ![dark mode demo](https://github.com/user-attachments/assets/0aaaf796-5157-4c8c-92fa-5eb15a45621c)
+
+![light mode demo](https://github.com/user-attachments/assets/654468a9-2fc4-4086-af17-4b4366fbf514)
 
 ## Local Setup
 1. Fork this repo
