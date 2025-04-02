@@ -57,9 +57,7 @@ export const taskBoardSlice = createSlice({
       } else {
         for (let i = 0; i < state[fromColumn].length; i++) {
           const t = state[fromColumn][i];
-          console.log('check', t.id, task.id);
           if (t.id === task.id) {
-            console.log('grrr', t, task);
             state[fromColumn][i] = task;
           }
         }

@@ -8,6 +8,7 @@
     max-height: 95%;
     overflow-y: auto;
     height: 100%;
+    scrollbar-color: #ccc #eee;
 }
   
 .add-todo-inputs {

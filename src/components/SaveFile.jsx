@@ -12,7 +12,7 @@ export default function SaveFile() {
     try {
       const handle = await window.showSaveFilePicker({
         startIn: 'downloads',
-        suggestedName: 'tasks-' + new Date().getTime() + '.json',
+        suggestedName: 'tasks_' + new Date().getTime() + '.json',
         types: [{
           accept: {
             "application/json": ['.json']
