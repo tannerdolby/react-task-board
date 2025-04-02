@@ -1,4 +1,7 @@
 # Kanban Board
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5d829858-9f8d-498f-b6ca-fac063cc9b24/deploy-status)](https://app.netlify.com/sites/exquisite-starship-1b43af/deploys)
+
 A task/kanban board built with React and Redux.
 
 ![dark mode demo](https://github.com/user-attachments/assets/0aaaf796-5157-4c8c-92fa-5eb15a45621c)
